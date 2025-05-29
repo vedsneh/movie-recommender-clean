@@ -3,7 +3,15 @@ import pickle
 import pandas as pd
 import time
 import requests
+import gdown
+import os
 
+similarity_file_id='18PgFIV3weZ3HaFKjJdte9nDrVO0mpCE3'
+similarity_path='similarity.pkl'
+
+if not os.path.exists(similarity_path):
+    st.info("Downloading similarity.pkl...")
+    gdown.download(id=similarity_file_id, output=similarity_path, quiet=False)
 def fetch_poster(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=d329aef9f904b6103b063428029cafa0&language=en-US"
     try:
@@ -32,7 +40,16 @@ def recommend(movie):
     return recommended_movies,recommended_movies_posters
 movies_dict=pickle.load(open('movie_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
-similarity=pickle.load(open('similarity.pkl','rb'))
+FILE_ID = "18PgFIV3weZ3HaFKjJdte9nDrVO0mpCE3"  # ← yahan tumhara actual ID daalo
+URL = f"https://drive.google.com/file/d/18PgFIV3weZ3HaFKjJdte9nDrVO0mpCE3/view?usp=sharing"
+
+# Check and download if not already present
+if not os.path.exists("similarity.pkl"):
+    gdown.download(URL, "similarity.pkl", quiet=False)
+
+# Load after downloading
+with open("similarity.pkl", "rb") as f:
+    similarity = pickle.load(f)
 st.title('Movie Recommender System')
 
 selected_movie_name=st.selectbox(
