@@ -3,6 +3,10 @@
 A simple and interactive movie recommendation web app built with **Streamlit**.  
 It suggests movies similar to the one you select, fetching movie posters dynamically from The Movie Database (TMDb) API.
 
+**Live Demo:**
+
+You can check the live version of this Movie Recommender app here: https://movie-recommender-clean-3e35tljumqurxvs7kprujv.streamlit.app/
+
 ## Features
 
 - User-friendly interface built with Streamlit
