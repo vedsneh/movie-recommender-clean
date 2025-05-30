@@ -17,7 +17,7 @@ It suggests movies similar to the one you select, fetching movie posters dynamic
 3. View 5 recommended movies along with their posters.
 
 ## Tech Stack and Tools
-- Python 3.x
+- Python 3.13
 - Streamlit (Web app framework)
 - Pandas (Data handling)
 - Requests (HTTP requests for API calls)
